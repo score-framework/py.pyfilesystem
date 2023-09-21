@@ -87,7 +87,7 @@ def init(confdict, ctx=None):
                 else:
                     query.append((key, value))
             url = [*url]
-            url[3] = query
+            url[3] = urllib.parse.urlencode(query)
             url = urllib.parse.urlunsplit(url)
             if '://' not in url:
                 # the URL probably does not contain a netloc part and urlunsplit
